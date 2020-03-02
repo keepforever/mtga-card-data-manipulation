@@ -1,5 +1,5 @@
 const fs = require('fs');
-const locDict = require('./locDictionary.json');
+const locDict = require('./generated/locDictionary.json');
 const sampleCards = require('./mtgadata/sampleCards');
 const fullCards = require('./mtgadata/data_cards');
 
@@ -30,11 +30,13 @@ const generateCardDictFull = () => {
         if (!card.isToken) {
             const key = `${card.set.toLowerCase()}${card.CollectorNumber}`;
             finalCardDictFull[key] = {
-                flavor: card.flavorId ? locDict[card.flavorId] : null,
                 title: card.titleId ? locDict[card.titleId] : null,
+                cmc: card.cmc || null,
+                castingCost: card.castingcost ? card.castingcost : null,
+                rarity: card.rarity || null,
                 type: card.cardTypeTextId ? locDict[card.cardTypeTextId] : null,
                 subType: card.subtypeTextId ? locDict[card.subtypeTextId] : null,
-                castingCost: card.castingcost ? card.castingcost : null
+                flavor: card.flavorId ? locDict[card.flavorId] : null
             };
         }
     });

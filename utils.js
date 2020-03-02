@@ -1,3 +1,4 @@
+const cardDict = require('./generated/card_dict_full');
 function validateAddDeckList(list) {
     let isSideBoard = false;
     // console.group('validateAddDeckList');
@@ -66,6 +67,9 @@ function getCardsMetadata(deck) {
         .filter(c => c)
         .map(c => {
             return getCardLookup(c);
+        })
+        .map(c => {
+            return cardDict[c];
         });
 
     return deckObjectArray;
