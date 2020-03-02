@@ -15,7 +15,7 @@ const main = () => {
         console.log(error);
     } finally {
         const finalDictionaryJsonString = JSON.stringify(finalDictionary);
-        fs.writeFile('./locDictionary.json', finalDictionaryJsonString, err => {
+        fs.writeFile('./generated/locDictionary.json', finalDictionaryJsonString, err => {
             if (err) {
                 console.log('Error writing locDictionary.json', err);
             } else {
