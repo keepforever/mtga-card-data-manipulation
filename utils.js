@@ -36,9 +36,8 @@ function validateAddDeckList(list) {
 }
 
 function getCardLookup(card) {
-    console.group('getCardLookup');
-    console.log('\n', '\n', `card = `, card, '\n', '\n');
-
+    // console.group('getCardLookup');
+    // console.log('\n', '\n', `card = `, card, '\n', '\n');
     const set = card
         .trim()
         .match(/\((.*)\)/)
@@ -51,11 +50,8 @@ function getCardLookup(card) {
         .pop();
 
     let key = set + cardNumber;
-
-    console.log('\n', '\n', `key = `, key, '\n', '\n');
-
-    console.groupEnd();
-
+    // console.log('\n', '\n', `key = `, key, '\n', '\n');
+    // console.groupEnd();
     return key;
 }
 
