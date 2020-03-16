@@ -30,6 +30,7 @@ const generateCardDictFull = () => {
         if (!card.isToken) {
             const key = `${card.set.toLowerCase()}${card.CollectorNumber}`;
             finalCardDictFull[key] = {
+                key: key,
                 title: card.titleId ? locDict[card.titleId] : null,
                 cmc: card.cmc || null,
                 castingCost: card.castingcost ? card.castingcost : null,
