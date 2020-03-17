@@ -29,15 +29,24 @@ const generateCardDictFull = () => {
     fullCards.forEach((card, index) => {
         if (!card.isToken) {
             const key = `${card.set.toLowerCase()}${card.CollectorNumber}`;
+            let abilities = [];
+            if (card.abilities.length) {
+                card.abilities.forEach(a => {
+                    abilities.push(locDict[a.textId]);
+                });
+            }
+
             finalCardDictFull[key] = {
                 key: key,
+                grpid: card.grpid,
                 title: card.titleId ? locDict[card.titleId] : null,
                 cmc: card.cmc || null,
+                abilities,
                 castingCost: card.castingcost ? card.castingcost : null,
                 rarity: card.rarity || null,
                 type: card.cardTypeTextId ? locDict[card.cardTypeTextId] : null,
                 subType: card.subtypeTextId ? locDict[card.subtypeTextId] : null,
-                flavor: card.flavorId ? locDict[card.flavorId] : null
+                    // flavor: card.flavorId ? locDict[card.flavorId] : null
             };
         }
     });
